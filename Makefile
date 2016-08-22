@@ -11,7 +11,7 @@ CFLAGS += -std=gnu99 -pedantic -g
 CLFAGS += -pipe
 
 .c:
-	$(CC) $(CFLAGS) $(LIBS) -o src/$@ $<
+	$(CC) $(CFLAGS) $(LIBS) -o $@ $<
 
 TARGETS :=
 TARGETS += hosted
