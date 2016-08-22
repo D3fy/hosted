@@ -1,4 +1,4 @@
-.PHONY: clean dist
+.PHONY: clean dist test
 .SUFFIXES: .c .o
 
 PACKAGE := hosted
@@ -40,6 +40,10 @@ rpm-pre: dist
 	rpmbuild -ba rpm.spec
 
 rpm: rpm-pre clean
+
+test: check
+
+check:
 
 clean:
 	rm -f $(TARGETS)
