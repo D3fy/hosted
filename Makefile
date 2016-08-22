@@ -48,3 +48,4 @@ check:
 clean:
 	rm -f $(TARGETS)
 	rm -f rpm.spec
+	rm -f $(PACKAGE)-$(VERSION).tar.gz
