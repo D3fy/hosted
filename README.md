@@ -1,6 +1,6 @@
 # hosted
 
-A quick and dirty application to resolve a DNS name a
+A quick and dirty application to resolve a DNS name and
 determine if that address resolves locally.
 
 The primary motiviation for writing hosted was to
