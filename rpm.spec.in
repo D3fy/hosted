@@ -7,7 +7,7 @@ License:        GPLv3+
 Group:          Development/Libraries
 
 BuildRoot:      %{_tmppath}/%{name}-root
-BuildArch:      noarch
+BuildArch:      x86_64
 Source0:        @PACKAGE@-%{version}.tar.gz
 
 
