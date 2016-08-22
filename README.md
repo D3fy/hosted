@@ -20,10 +20,15 @@ machine.
   * love
   * jk computers don't love
 
-### compiling
+### installing
 
 ```
   make
+```
+or if you a little more discerning:
+```
+  make build
+  sudo make install
 ```
 
 ## usage
