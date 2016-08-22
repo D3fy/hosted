@@ -3,7 +3,7 @@
 A quick and dirty application to resolve a DNS name and
 determine if that address resolves locally.
 
-The primary motiviation for writing hosted was to
+The primary motivation for writing hosted was to
 determine if a floating/Virtual address is on the local
 machine.
 
@@ -11,7 +11,7 @@ machine.
 
 ### requirements
 
-  * A compiler
+  * A C compiler
   * POSIX
   * probably Linux
   * maybe BSD
@@ -25,7 +25,7 @@ machine.
 ```
   make
 ```
-or if you a little more discerning:
+or if you are a little more discerning:
 ```
   make build
   sudo make install
@@ -39,7 +39,7 @@ or if you a little more discerning:
 
 If the name is hosted locally the application will return 0
 If it's not hosted it will return 1, if there is an error it
-throws the string error to stdout and returns 2.
+throws the string error to standard error and returns 2.
 
 ### example
 This allows programmers to chain `hosted' into bash commands
