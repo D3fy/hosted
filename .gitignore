@@ -1,2 +1,4 @@
 hosted
 !hosted.c
+rpm.spec
+!rpm.spec.in

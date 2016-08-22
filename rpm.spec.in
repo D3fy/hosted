@@ -1,0 +1,45 @@
+Name:           @PACKAGE@
+Version:        @VERSION@
+Release:        1%{?_dist}
+Summary:        Verify a name resolves locally
+URL:            https://github.com/graytshirt/@PACKAGE@
+License:        GPLv3+
+Group:          Development/Libraries
+
+BuildRoot:      %{_tmppath}/%{name}-root
+BuildArch:      noarch
+Source0:        @PACKAGE@-%{version}.tar.gz
+
+
+%description
+see if an address resolves locally
+
+
+%prep
+%setup -q
+
+
+%build
+make build
+
+
+%check
+make check
+
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT PREFIX=/usr
+
+
+%files
+%defattr(0755,root,root)
+/usr/bin/hosted
+
+%changelog
+* Mon Aug 22 2016 Dan Molik <dan@danmolik.com> 1.0.0-1
+- Initial port
