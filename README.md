@@ -36,7 +36,8 @@ If the name is hosted locally the application will return 0
 If it's not hosted it will return 1, if there is an error it
 throws the string error to stdout and returns 2.
 
+### example
 This allows programmers to chain `hosted' into bash commands
 ```
-  hosted www.google.com && echo "true" || echo "why would you be hosting google?"
+  hosted www.google.com || echo "why would you be hosting google?"
 ```
