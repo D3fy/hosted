@@ -36,7 +36,7 @@ int resolv_addr(const char *str_addr) /* {{{ */
 		char str[INET_ADDRSTRLEN];
 		struct sockaddr_in sock = *(struct sockaddr_in *)(servinfo->ai_addr);
 		if (inet_ntop(AF_INET, &(sock.sin_addr), str, INET_ADDRSTRLEN) == NULL) {
-			printf("failed: %s\n", strerror(errno));
+			fprintf(stderr, "failed to resolve: %s, %s\n", str_addr, strerror(errno));
 		}
 		resolved[num_resolved] = malloc(sizeof(str));
 		resolved[num_resolved] = strdup(str);
@@ -89,18 +89,18 @@ int device_addr(void) /* {{{ */
 int main(int argc, char *argv[])
 {
 	if (argc != 2) {
-		printf("please provide 1 address\n");
-		return 1;
+		fprintf(stderr, "please provide 1 address\n");
+		return 2;
 	}
 	resolved  = malloc(sizeof(char *));
 	addresses = malloc(sizeof(char *));
 	if (resolv_addr(argv[1]))
-		return 1;
+		return 2;
 	if (device_addr())
-		return 1;
+		return 2;
 	for (int i = 0; i < num_resolved; i++)
 		for (int j = 0; j < num_addresses; j++)
 			if (strcmp(addresses[j], resolved[i]) == 0)
-				printf("%s is hosted here\n", argv[1]);
-	return 0;
+				return 0;
+	return 1;
 }

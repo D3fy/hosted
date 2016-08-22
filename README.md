@@ -32,7 +32,11 @@ machine.
    hosted <qualified domain name>
 ```
 
-If the name is hosted locally the application will say
-as much. If it's not hosted it will not have any output.
-If there is an error it will throw the string error and set
-a return code other than zero.
+If the name is hosted locally the application will return 0
+If it's not hosted it will return 1, if there is an error it
+throws the string error to stdout and returns 2.
+
+This allows programmers to chain `hosted' into bash commands
+```
+  hosted www.google.com && echo "true" || echo "why would you be hosting google?"
+```
