@@ -2,3 +2,4 @@ hosted
 !hosted.c
 rpm.spec
 !rpm.spec.in
+hosted-*.tar.gz

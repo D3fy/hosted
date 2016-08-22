@@ -1,4 +1,4 @@
-.PHONY: clean
+.PHONY: clean dist
 .SUFFIXES: .c .o
 
 PACKAGE := hosted
@@ -32,14 +32,14 @@ dist:
 	tar -czf $(PACKAGE)-$(VERSION).tar.gz $(PACKAGE)-$(VERSION)/
 	rm -r $(PACKAGE)-$(VERSION)
 
-rpm:
-	$(call dist)
+rpm-pre: dist
 	cp $(PACKAGE)-$(VERSION).tar.gz ~/rpmbuild/SOURCES
 	cp rpm.spec.in rpm.spec
 	sed -i -e "s/@VERSION@/$(VERSION)/g" \
 		-e "s/@PACKAGE@/$(PACKAGE)/g" rpm.spec
 	rpmbuild -ba rpm.spec
-	$(call clean)
+
+rpm: rpm-pre clean
 
 clean:
 	rm -f $(TARGETS)
